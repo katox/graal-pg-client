@@ -7,6 +7,9 @@ import java.sql.*;
  */
 public class App {
     public static void main(String[] args) {
+
+        Logging.setupLogging();
+
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
