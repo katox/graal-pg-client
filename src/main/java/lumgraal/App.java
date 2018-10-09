@@ -15,17 +15,11 @@ public class App {
 
         Logging.setupLogging();
 
-        logger.fine("loading postgresql driver");
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
         logger.fine("registering postgresql driver");
         Driver driver = new Driver();
         try {
-            DriverManager.registerDriver(driver);
+            if (!Driver.isRegistered())
+                DriverManager.registerDriver(driver);
         } catch (SQLException e) {
             e.printStackTrace();
         }
