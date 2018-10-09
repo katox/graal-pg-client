@@ -23,13 +23,15 @@ SVM jar from Graal needs to be repackaged as a maven dependency:
 
 ### Expected output
 
-    Column 1 returned 1
-    The End.
-    
+    java -jar target/graal-pg-client-1.0-SNAPSHOT.jar 2>&1 | grep INFO
+
+    2018-10-09T15:28:55 INFO java.util.logging.LogManager$RootLogger log org.posgresql.Driver.isRegistered() == true
+    2018-10-09T15:28:55 INFO java.util.logging.LogManager$RootLogger log Column 1 returned: 1
+    2018-10-09T15:28:55 INFO java.util.logging.LogManager$RootLogger log The End.
 
 ## native-image compilation    
 
-    native-image --report-unsupported-elements-at-runtime  -jar target/graal-pg-client-1.0-SNAPSHOT.jar
+    ./create-image.sh
 
 ## License
 
