@@ -8,3 +8,4 @@
 .hg/
 /.idea
 /log
+/graal-pg-client-*
