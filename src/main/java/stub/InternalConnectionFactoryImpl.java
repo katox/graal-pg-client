@@ -9,7 +9,7 @@ import org.postgresql.sspi.ISSPIClient;
 final public class InternalConnectionFactoryImpl {
 
     @Substitute
-    private ISSPIClient createSSPI(PGStream pgStream,
+        private ISSPIClient createSSPI(PGStream pgStream,
                                    String spnServiceClass,
                                    boolean enableNegotiate) {
         throw new IllegalStateException("Unable to load org.postgresql.sspi.SSPIClient.");

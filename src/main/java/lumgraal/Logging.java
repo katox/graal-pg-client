@@ -8,12 +8,13 @@ import java.util.logging.Logger;
 public class Logging {
 
     public static void setupLogging() {
+        Level loggingLevel = Level.FINE;
         OneLineFormatter formatter = new OneLineFormatter();
         Logger rootLogger = LogManager.getLogManager().getLogger("");
-        rootLogger.setLevel(Level.FINEST);
+        rootLogger.setLevel(loggingLevel);
 
         for (Handler handler : rootLogger.getHandlers()) {
-            handler.setLevel(Level.FINEST);
+            handler.setLevel(loggingLevel);
             handler.setFormatter(formatter);
         }
     }

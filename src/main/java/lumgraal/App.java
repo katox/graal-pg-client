@@ -1,9 +1,15 @@
 package lumgraal;
 
-import java.sql.*;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.postgresql.ds.PGSimpleDataSource;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
-import org.postgresql.Driver;
 
 /**
  * Hello world!
@@ -15,22 +21,18 @@ public class App {
 
         Logging.setupLogging();
 
-        logger.fine("registering postgresql driver");
-        Driver driver = new Driver();
-        try {
-            if (!Driver.isRegistered())
-                DriverManager.registerDriver(driver);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        logger.info("org.posgresql.Driver.isRegistered() == " + Driver.isRegistered());
-
-        logger.fine("tring to connect to PostgreSQL database");
-
         String url = "jdbc:postgresql://localhost/postgres?user=postgres&password=postgres";
+        PGSimpleDataSource psqlDs = new PGSimpleDataSource();
+        psqlDs.setUrl(url);
+
+        HikariConfig config = new HikariConfig();
+        config.setDataSource(psqlDs);
+
+        logger.fine("Trying to connect to PostgreSQL database " + url);
+        HikariDataSource ds = new HikariDataSource(config);
+
         try {
-            Connection conn = DriverManager.getConnection(url);
+            Connection conn = ds.getConnection();
 
             PreparedStatement st = conn.prepareStatement("SELECT 1");
             ResultSet rs = st.executeQuery();
@@ -41,6 +43,8 @@ public class App {
             st.close();
 
             conn.close();
+
+            ds.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
