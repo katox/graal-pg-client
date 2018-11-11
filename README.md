@@ -6,13 +6,6 @@ Generated using Maven archetype.
 
 You will need [Maven][1] 3.0 or above installed.
 
-SVM jar from Graal needs to be repackaged as a maven dependency:
-
-    mvn install:install-file -DgroupId=com.oracle -DartifactId=graal-svm \
-                                         -Dversion=1.0.0-rc8 -Dpackaging=jar -Dfile=graalvm-ce-1.0.0-rc8/jre/lib/svm/builder/svm.jar
-    mvn install:install-file -DgroupId=com.oracle -DartifactId=graal-sdk \
-                                         -Dversion=1.0.0-rc8 -Dpackaging=jar -Dfile=graalvm-ce-1.0.0-rc8/jre/lib/boot/graal-sdk.jar
-
 Build and create [HikarCP-graal][2] connection pool and install it to your local maven repository
 
    git clone https://github.com/leafclick/HikariCP
