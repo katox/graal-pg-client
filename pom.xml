@@ -59,9 +59,9 @@
             <version>42.2.5</version>
         </dependency>
         <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP-graal</artifactId>
-            <version>3.2.1-SNAPSHOT</version>
+            <groupId>com.leafclick</groupId>
+            <artifactId>hikariCP</artifactId>
+            <version>HikariCP-3.3.2-graal-RC3</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -101,5 +101,12 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
 </project>
