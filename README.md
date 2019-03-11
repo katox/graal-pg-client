@@ -8,9 +8,9 @@ You will need [Maven][1] 3.0 or above installed.
 
 Build and create [HikarCP-graal][2] connection pool and install it to your local maven repository
 
-   git clone https://github.com/leafclick/HikariCP
-   git checkout graal
-   mvn clean install
+	git clone https://github.com/leafclick/HikariCP
+	git checkout graal
+	mvn clean install
 
 [1]: https://maven.apache.org
 [2]: https://github.com/leafclick/HikariCP
@@ -40,4 +40,4 @@ Build and create [HikarCP-graal][2] connection pool and install it to your local
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018,2019 Kamil Toman
